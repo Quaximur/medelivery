@@ -1,7 +1,7 @@
 import { pgTable, timestamp, varchar, uuid } from "drizzle-orm/pg-core";
 
 export const dispatches = pgTable("dispatches", {
-    id: uuid("id").primaryKey(),
+    id: uuid("id").defaultRandom().primaryKey(),
     orderId: uuid("order_id").notNull(),
     customerName: varchar("customer_name", { length: 100 }).notNull(),
     item: varchar("item", { length: 100 }).notNull(),
